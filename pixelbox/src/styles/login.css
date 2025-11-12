@@ -1,0 +1,222 @@
+.login-layout {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background: url("https://art.pixilart.com/77179258354a091.gif") no-repeat center bottom;
+  background-size: cover;
+  animation: bgScroll 30s ease-in-out infinite alternate;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+  color: #e0e0e0;
+}
+
+@keyframes bgScroll {
+  from { background-position-y: 100%; }
+  to   { background-position-y: 0%; }
+}
+
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(30,30,30,0.4);
+  animation: breathe 6s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes breathe {
+  from { backdrop-filter: blur(4px); }
+  to   { backdrop-filter: blur(8px); }
+}
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.login-card-inner {
+  background: rgba(40, 40, 40, 0.78);
+  border: 2px solid #555;
+  box-shadow: 0 0 20px rgba(0,255,153,0.35), 6px 6px 0 #000;
+  padding: 32px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card-inner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.12) 50%, transparent 65%);
+  filter: blur(10px);
+  opacity: 0.7;
+  animation: shine 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(520%); }
+}
+
+.login-title {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+  color: #f0f0f0;
+  text-shadow: 2px 2px #000;
+}
+
+.login-subtitle {
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  text-shadow: 2px 2px #000;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.8rem;
+  color: #ccc;
+  text-shadow: 2px 2px #000;
+}
+
+input {
+  height: 42px;
+  padding: 0 12px;
+  color: #f0f0f0;
+  background: #2a2a2a;
+  border: none;
+  border-bottom: 3px solid #555;
+  font-family: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+input:focus {
+  border-color: #00ff99;
+  box-shadow: 0 2px 8px rgba(0,255,153,0.5);
+}
+
+.password-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-password {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background: rgba(80,80,80,0.65);
+  border: 2px solid #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.toggle-password svg {
+  display: block;
+}
+
+
+.toggle-password .icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.toggle-password:hover {
+  background: rgba(100,100,100,0.85);
+  transform: scale(1.06);
+}
+
+.toggle-password.is-on {
+  border-color: #00ff99;
+  box-shadow: 0 0 8px rgba(0,255,153,0.45);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  background: #333;
+  color: #f0f0f0;
+  border: 2px solid #00ff99;
+  box-shadow: 0 0 12px rgba(0,255,153,0.6);
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.btn-link {
+  color: #ccc;
+  text-decoration: none;
+  border-bottom: 2px solid #777;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-link:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 420px) {
+  .login-card-inner {
+    min-width: 280px;
+    padding: 24px;
+  }
+  .login-title {
+    font-size: 1.4rem;
+  }
+}
