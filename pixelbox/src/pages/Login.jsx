@@ -58,7 +58,6 @@ function Login() {
                 onClick={() => setShowPassword(v => !v)}
                 >
                 {showPassword ? (
-                    /* Olho fechado */
                     <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"
                             fill="none" stroke="#fff" strokeWidth="2"/>
@@ -67,7 +66,6 @@ function Login() {
                             stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
                     </svg>
                 ) : (
-                    /* Olho aberto */
                     <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"
                             fill="none" stroke="#fff" strokeWidth="2"/>
