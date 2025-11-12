@@ -1,0 +1,164 @@
+.about-layout {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background: #0a0d12;
+  font-family: "Press Start 2P", cursive;
+  color: #e6f3ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+              url("https://www.pixilart.com/images/art/293b6495430dc30.gif") repeat-x;
+  background-size: cover;
+  animation: moveLeft 90s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveLeft {
+  from { background-position-x: 0; }
+  to   { background-position-x: -400px; }
+}
+
+.lightning-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.8);
+  opacity: 0;
+  animation: lightning 14s infinite;
+}
+
+@keyframes lightning {
+  0%, 96%, 100% { opacity: 0; }
+  97% { opacity: 1; }
+  98% { opacity: 0.4; }
+  99% { opacity: 0; }
+}
+
+.rain-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.about-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.about-title {
+  font-size: 1.6rem;
+  color: #00ff99;
+  text-shadow: 0 0 12px #00ff99;
+}
+
+.about-sub {
+  font-size: 0.85rem;
+  color: #a3d9ff;
+}
+
+.about-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin: 20px 0;
+}
+
+.about-card {
+  flex: 1 1 250px;
+  background: rgba(20, 24, 30, 0.8);
+  border: 2px solid #00ff99;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 16px rgba(0,255,153,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 24px rgba(0,255,153,0.5);
+}
+
+.about-card h2 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #ffd966;
+}
+
+.about-card p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #cfe3f5;
+}
+
+.about-ctas {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.btn-start {
+  padding: 10px 24px;
+  border-radius: 40px;
+  background: #00ff99;
+  color: #0a0d12;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00ff99;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-start:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  padding: 10px 24px;
+  border-radius: 40px;
+  border: 2px solid #a3d9ff;
+  background: transparent;
+  color: #a3d9ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  transform: scale(1.05);
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 620px) {
+  .about-title { font-size: 1.3rem; }
+  .about-sub { font-size: 0.8rem; }
+  .about-card { flex: 1 1 100%; }
+}
